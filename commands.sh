@@ -7,7 +7,7 @@ az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops
 git clone https://github.com/thanhtina8/test.git
 
 #switch to directory
-cd Cloud-Based-Development
+cd test
 
 #setup venv
 python3 -m venv venv
