@@ -29,34 +29,26 @@ stages:
     pool: myAgentPool
     steps:    
     - script: |
-        python3.7 -m pip install --upgrade pip
-        python3.7 -m pip install setup
-        python3.7 -m pip install -r requirements.txt
+        python3.9 -m pip install --upgrade pip
+        python3.9 -m pip install setup
+        python3.9 -m pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: 'myStep 1'
 
-    - script: |
-        export PATH=$HOME/.local/bin:$PATH
-        make install
-      workingDirectory: $(projectRoot)
-      displayName: 'myStep 2'
+- stage: Deploy
+  displayName: Deploy stage
+  dependsOn: Build
+  jobs:
+  - job: DeployJob
+    pool: myAgentPool
+    steps:
+    - download: drop
+      displayName: 'Download build artifacts'
 
-    - script: |
-        export PATH=$HOME/.local/bin:$PATH
-        make install
-        make lint
-      workingDirectory: $(projectRoot)
-      displayName:  'myStep 3 - Run lint tests'
-
-    - task: ArchiveFiles@2
-      displayName: 'myStep 4 - Archive files'
+    - task: AzureWebApp@1
+      displayName: 'Deploy to Azure Web App'
       inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'myStep 5 - Upload package'
-      artifact: drop      
+        azureSubscription: $(azureServiceConnectionId)
+        appName: $(webAppName)
+        package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+        deploymentMethod: 'runFromPackage'
