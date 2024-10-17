@@ -1,7 +1,4 @@
 # Starter pipeline    
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 trigger:
 - master
 
@@ -17,10 +14,10 @@ variables:
   # Environment name
   environmentName: 'udacityproject2'
 
-# Project root folder. Point to the folder containing manage.py file.
+  # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  # Python version: 3.7
+  # Python version
   pythonVersion: '3.7'
 
 stages:
@@ -30,15 +27,20 @@ stages:
   - job: BuildJob
     pool: myAgentPool
     steps:
+    # Install Python and create virtual environment
     - script: |
-        python -m venv antenv
+        # Check Python version
+        python3.7 --version
+        # Create and activate virtual environment
+        python3.7 -m venv antenv
         source antenv/bin/activate
+        # Upgrade pip and install dependencies
         python -m pip install --upgrade pip
-        pip install setup
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
 
+    # Archive files
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -48,6 +50,7 @@ stages:
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
 
+    # Upload package
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'Upload package'
       artifact: drop
@@ -64,8 +67,9 @@ stages:
       runOnce:
         deploy:
           steps:
+          # Deploy to Azure Web App
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : '
+            displayName: 'Deploy Azure Web App'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
