@@ -54,13 +54,13 @@ Ttest the application by running the make_prediction.sh script
 
 ![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/testlocalhost.png)
 
-* Run GitHub Actions
+2. Run GitHub Actions
 
 Every push to the repository will trigger a GitHub Action which runs a pipeline to test the code.
 
 ![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/githubaction.png)
 
-* Deployment
+3.Deployment
 
 Create a web app service
 
@@ -68,18 +68,21 @@ Create a web app service
 az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.12"
 
 ```
+![]([https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/appurl.png](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/CreateAppService.png))
 
-
+Set up service connection
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/service%20connection.png)
+Set up the pipeline
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/pipeline.png)
 
 Deployed Azure App Service
-
-
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/deploymentsuccess.png)
 
 Successful deployment
 
 ![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/appurl.png)
 
-* Testing
+4.Testing
 
 
 
@@ -87,15 +90,17 @@ Execute the script and check the output
 ```
 ./make_predict_azure_app.sh     
 ````
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/testingML.png)
 
 
 You can check the log via 
 
 ```
-https://<your-app-name>.scm.azurewebsites.net/api/logs/docker
+https://udacityproject2.scm.azurewebsites.net/api/logs/docker
 ```
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/testinglog.png)
 
-Replace ```<your-app-name>``` with your app name.
+
 
 
 
