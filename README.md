@@ -8,7 +8,7 @@ In this project, we will build a Github repository from scratch and create a sca
 ## Project Plan
 
 * [Trello board](https://trello.com/b/N126gwen/udacity)
-* [Spreadsheet](https://github.com/nghianhh/Cloud-Based-Development/blob/main/Udacity-Cloud-Devops-2-spreadsheet.xlsx)
+* [Spreadsheet]([https://github.com/nghianhh/Cloud-Based-Development/blob/main/Udacity-Cloud-Devops-2-spreadsheet.xlsx](https://github.com/thanhtina8/udacityproject2/blob/main/Udacityproject2.xlsx))
 
 ## Architecture
 
