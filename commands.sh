@@ -4,10 +4,10 @@
 az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.10"
 
 #clone the repo
-git clone https://github.com/thanhtina8/test.git
+git clone https://github.com/thanhtina8/udacityproject2.git
 
 #switch to directory
-cd test
+cd udacityproject2
 
 #setup venv
 python3 -m venv venv
