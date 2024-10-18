@@ -1,27 +1,36 @@
-[![Python application](https://github.com/nghianhh/Cloud-Based-Development/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/nghianhh/Cloud-Based-Development/actions/workflows/pythonapp.yml)
+[![Python application test with Github Actions](https://github.com/thanhtina8/udacityproject2/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/thanhtina8/udacityproject2/actions/workflows/python-app.yml)
 
 # Overview
 
-This project is a cloud based development project, using python programing language, suggestion version is python 3.10.
-
+In this project, we will build a Github repository from scratch and create a scaffolding that will assist you in performing both Continuous Integration and Continuous Delivery
+   Using Github Actions along with a Makefile, requirements.txt and application code to perform an initial lint, test, and install cycle
+   Integrate this project with Azure Pipelines to enable Continuous Delivery to Azure App Service
 ## Project Plan
 
-* [Trello board](https://trello.com/b/ZhLaXWJ0/Udacity-Cloud-Devops-2)
+* [Trello board](https://trello.com/b/N126gwen/udacity)
 * [Spreadsheet](https://github.com/nghianhh/Cloud-Based-Development/blob/main/Udacity-Cloud-Devops-2-spreadsheet.xlsx)
 
 ## Architecture
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Architecture.jpg)
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/overview.png)
 
 ## Instructions
 
 * Deploy the app in Azure Cloud Shell
 
-In Azure Cloud Shell, clone the repo:
+
+In Azure Cloud Shell
+ssh-keygen -t rsa 
+cat .ssh/id_rsa.pub 
+
+
+Clone the repo:
+
+
 ```
-git clone https://github.com/nghianhh/Cloud-Based-Development.git
+git clone git@github.com:thanhtina8/udacityproject2.git
 ```
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Project_Clone.png)
+![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/CreateAppService.png)
 
 Create a virtual environment:
 ```
@@ -33,28 +42,34 @@ source venv/bin/activate
 ```
 Change into the new directory:
 ```
-cd Cloud-Based-Development
+cd udacityproject2
 ```
 Install dependencies in the virtual environment and run tests:
 ```
 make all
 ```
+Run application
+export FLASK_APP=app.py
+  flask run
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Make_All_1.png)
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Make_All_2.png)
+Ttest the application by running the make_prediction.sh script
+![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/runtestapplication.png)
+
+![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/testlocalhost.png)
 
 * Run GitHub Actions
 
 Every push to the repository will trigger a GitHub Action which runs a pipeline to test the code.
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Github_Action_Build.png)
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/githubaction.png)
 
 * Deployment
 
-To deploy this app create an App Service in Azure using the Azure Cloud Shell
+Create a web app service
+
 ```
-az webapp up -n flask-project --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.10"
+az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.12"
 
 ```
 
@@ -76,7 +91,7 @@ Successful deployment
 
 * Testing
 
-To test the app modify line 28 of the [test script](./make_predict_azure_app.sh) and replace the app name with your app name.
+
 
 Execute the script and check the output
 ```
