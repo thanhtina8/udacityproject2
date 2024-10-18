@@ -8,25 +8,21 @@ In this project, we will build a Github repository from scratch and create a sca
 ## Project Plan
 
 * [Trello board](https://trello.com/b/N126gwen/udacity)
-* [Spreadsheet]([https://github.com/nghianhh/Cloud-Based-Development/blob/main/Udacity-Cloud-Devops-2-spreadsheet.xlsx](https://github.com/thanhtina8/udacityproject2/blob/main/Udacityproject2.xlsx))
+* [Spreadsheet](https://github.com/thanhtina8/udacityproject2/blob/main/Udacityproject2.xlsx)
 
 ## Architecture
 
 ![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/overview.png)
 
 ## Instructions
-
-* Deploy the app in Azure Cloud Shell
-
-
-In Azure Cloud Shell
+1. Configuration
+Set up ssh-key using Azure Cloud Shell
+```
 ssh-keygen -t rsa 
-cat .ssh/id_rsa.pub 
-
+```
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/keygen.png)
 
 Clone the repo:
-
-
 ```
 git clone git@github.com:thanhtina8/udacityproject2.git
 ```
@@ -73,21 +69,15 @@ az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops
 
 ```
 
-Then create a pipeline in Azure Devops to automate the deployment:
 
-* Go to https://dev.azure.com and sign in.
-* Create a new private project. 
-* Create a new service connection to Azure Resource Manager, update subscription & application info.
-* Create a new pipeline linked to your GitHub repo using a Azure Pipeline Yaml File.
-* Check [official documentation](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops) for more information 
 
 Deployed Azure App Service
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Azure_App_Service.png)
+
 
 Successful deployment
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Success_Deployment.png)
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/appurl.png)
 
 * Testing
 
@@ -98,11 +88,6 @@ Execute the script and check the output
 ./make_predict_azure_app.sh     
 ````
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Make_Predict.png)
-
-You can also access the App in the Browser to see if its up and running
-
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/Running_App_Service.png)
 
 You can check the log via 
 
@@ -112,7 +97,7 @@ https://<your-app-name>.scm.azurewebsites.net/api/logs/docker
 
 Replace ```<your-app-name>``` with your app name.
 
-![](https://raw.githubusercontent.com/nghianhh/Cloud-Based-Development/main/Screenshots/App_Service_Log.png)
+
 
 ## Enhancements
 
@@ -120,6 +105,6 @@ Add Application insights to improve logging and Analysis
 
 ## Demo 
 
-[Youtube](https://www.youtube.com/watch?v=AMOGLhTna2A&ab_channel=NguyenNghia)
+
 
 
