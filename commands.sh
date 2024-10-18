@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # deploy the app as an app service
-az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.10"
+az webapp up -n udacityproject2 --location eastasia --resource-group azuredevops --sku B1 --os-type "Linux" --runtime "PYTHON:3.12"
 
 #clone the repo
 git clone https://github.com/thanhtina8/udacityproject2.git
