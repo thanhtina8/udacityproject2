@@ -109,7 +109,7 @@ https://udacityproject2.scm.azurewebsites.net/api/logs/docker
 Add Application insights to improve logging and Analysis
 
 ## Demo 
-[Youtube](https://youtu.be/mdes1U96i-U)
+[Youtube](https://youtu.be/4hrLsaU8S70)
 
 
 
