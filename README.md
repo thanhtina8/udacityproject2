@@ -46,6 +46,9 @@ make all
 ```
 ![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/installdependencies.png)
 Conduct a test run on application
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/pytest.png)
+
+Run application on localhost
 
 export FLASK_APP=app.py
 
