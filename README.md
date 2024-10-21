@@ -44,13 +44,18 @@ Install dependencies in the virtual environment and run tests:
 ```
 make all
 ```
-Run application
+![](https://github.com/thanhtina8/udacityproject2/blob/main/Screenshots/installdependencies.png)
+Conduct a test run on application
+
 export FLASK_APP=app.py
-  flask run
+
+flask run
 
 
-Ttest the application by running the make_prediction.sh script
 ![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/runtestapplication.png)
+
+Test the application by running the make_prediction.sh script
+
 
 ![](https://github.com/thanhtina8/udacityproject2/blob/ccc9b46156296484e73d6632e35e1f464e7d52bf/Screenshots/testlocalhost.png)
 
